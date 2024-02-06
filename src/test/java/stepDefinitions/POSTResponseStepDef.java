@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import apiEngine.model.responses.POST_PUTResponse;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -38,6 +39,7 @@ public class POSTResponseStepDef {
 
     @Then("I should get POST status code:{int} for {string}")
     public void i_should_get_post_status_code_for(int statusCode, String userType) {
+        System.out.println(new POST_PUTResponse().getResponse("/api/register", "eve.holt@reqres.in", "pistol"));
         switch (userType) {
             case "register user" ->
                     Assert.assertEquals(statusCode, registerUserPOST.POSTResponse("xyz@abc.com", "password"));

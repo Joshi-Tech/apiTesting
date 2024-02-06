@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @AllArgsConstructor
-public class RegisterUser {
-    private String name;
-    private String job;
+public class UpdateUserStatus {
+    public String name;
+    public String job;
 }
