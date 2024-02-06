@@ -5,14 +5,14 @@ import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import pages.BasePage;
 
+@AllArgsConstructor
+@Data
 public class RegisterUserPOST extends BasePage {
     private String endpoint;
-
-    public RegisterUserPOST(String endpoint) {
-        this.endpoint = endpoint;
-    }
 
     public RequestSpecification postRequest() {
         RestAssured.baseURI = "https://reqres.in/api/register";
@@ -26,6 +26,11 @@ public class RegisterUserPOST extends BasePage {
         RequestSpecification payload = postRequest().body(registerUser.toString());
         postRequest().header("Content-Type", "application/json");
         return payload;
+    }
+
+    public Response getPOSTResponse(String email, String password) {
+        Response response = providePayLoad(email, password).post();
+        return response;
     }
 
     public int POSTResponse(String email, String password) {
