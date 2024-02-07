@@ -12,5 +12,4 @@ public class BasePage {
         httpRequest = RestAssured.given().basePath(endPoint);
         return httpRequest;
     }
-
 }

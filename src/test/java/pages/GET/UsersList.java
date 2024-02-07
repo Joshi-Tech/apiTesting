@@ -6,21 +6,22 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import pages.BasePage;
 
-public class SingleUser extends BasePage {
+public class UsersList extends BasePage {
+
     private String endpoint;
 
-    public SingleUser(String endpoint) {
+    public UsersList(String endpoint) {
         this.endpoint = endpoint;
     }
 
-    public RequestSpecification getSingleUserRequest() {
+    public RequestSpecification getUserListRequest() {
         baseRequest(endpoint);
         RequestSpecification httpRequest = RestAssured.given().basePath(endpoint);
         return httpRequest;
     }
 
-    public Response getSingleUserResponse() {
-        Response response = baseRequest(endpoint).request(Method.GET);
+    public Response getUserListResponse() {
+        Response response = getUserListRequest().request(Method.GET);
         return response;
     }
 }

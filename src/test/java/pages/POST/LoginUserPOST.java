@@ -33,9 +33,6 @@ public class LoginUserPOST extends BasePage {
 
     public int POSTResponse(String email, String password) {
         Response response = providePayLoad(email, password).post();
-        System.out.println(response.body().jsonPath().getString( "token"));
-       String json= response.asString();
-        Object token = JsonPath.from(json).get("token");
         return response.statusCode();
     }
 }
